@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: "Pixelify Sans", sans-serif;
+  overflow: hidden;
+}
+
+/* AMPLOP */
+
+#amplop-container {
+  text-align: center;
+  cursor: pointer;
+}
+
+#amplop {
+  width: clamp(220px, 35vw, 420px);
+  animation: pulse 1.5s infinite;
+}
+
+#amplop-container p {
+  font-size: clamp(20px, 3vw, 32px);
+  margin-top: 5px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.07);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* HALAMAN WADAH */
+
+#letter-container {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.letter-window {
+  position: relative;
+
+  width: min(92vw, 850px);
+  height: min(88svh, 760px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transform: scale(0.9);
+
+  transition: 0.6s ease;
+}
+
+.letter-window.open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* GAMBAR WADAH */
+
+.wadah-art {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 1;
+}
+
+/* ISI WADAH */
+
+.letter-content {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+}
+
+/* KUCING */
+.cat {
+  position: absolute;
+  width: 21%;
+  height: auto;
+  top: 23%;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: contain;
+}
+
+/* TOMBOL */
+.buttons {
+  position: absolute;
+  top: 61%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.btn {
+  width: 22%;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+/* TEKS SETELAH YES */
+#final-text {
+  display: none;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  text-align: center;
+  font-size: clamp(13px, 2vw, 19px);
+  line-height: 1.4;
+  color: #51452f;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+/* TAMPILAN HP */
+
+@media (max-width: 600px) {
+
+  .letter-window {
+    width: 100vw;
+    height: 75svh;
+  }
+
+  .cat {
+    width: 25%;
+    top: 25%;
+  }
+
+  .buttons {
+    top: 74%;
+    gap: 4%;
+  }
+
+  .btn {
+    width: 25%;
+  }
+
+  #final-text {
+    width: 75%;
+    top: 72%;
+  }
+}
